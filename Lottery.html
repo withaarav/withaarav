@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery Game</title>
+
+  <style>
+  /* General Styles */
+  * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Impact', sans-serif;
+  }
+
+  body {
+      background-image: url('background.jpg');
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+  }
+
+  .main-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      gap: 20px;
+  }
+
+  .game-box {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      width: 90%;
+      max-width: 600px;
+  }
+    /* Warning text styles */
+  #warning {
+        font-size: 20px; /* Increase the font size */
+        color: red; /* Make the text color red */
+        text-align: center; /* Center the text */
+        position: absolute; /* Position it at the bottom */
+        bottom: 10px; /* 10px from the bottom */
+        width: 100%; /* Take full width of the container */
+  }
+
+  #wheel-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 300px;
+      height: 300px;
+      position: relative;
+  }
+
+  /* Arrow above the wheel */
+  #arrow {
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 30px solid red;
+      position: absolute;
+      top: -30px; /* Point towards the wheel */
+      z-index: 10;
+  }
+
+  /* Wheel styling */
+  #wheel {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      background: conic-gradient(#ff6347 10%, #0066cc 10% 20%, #ff6347 20% 30%, #0066cc 30% 40%, #ff6347 40% 50%, #0066cc 50% 60%, #ff6347 60% 70%, #0066cc 70% 80%, #ff6347 80% 90%, #0066cc 90% 100%);
+      position: relative;
+      animation: none; /* Start with no animation */
+  }
+
+  .wheel-number {
+      font-size: 24px;
+      color: white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform-origin: 0px 0px;
+      transform: translate(-50%, -50%);
+  }
+  </style>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="game-box">
+            <h1>Lottery Game</h1>
+            <p class="explanation">Start with $2000. Adjust the sliders to bet on numbers from 0 to 9. Hit the "Place Bet" button to submit your bets. If your number matches, you win nine times your bet!</p>
+
+            <div id="warning"></div>
+            <div id="balance">Balance: $2000</div>
+
+            <!-- Grid of number blocks (0-9) -->
+            <div class="grid-container">
+                <div class="block" data-number="0">
+                    0
+                    <input type="range" min="0" max="500" value="0" class="slider" id="slider0">
+                    <span id="bet0" class="bet-amount">$0</span>
+                </div>
+                <div class="block" data-number="1">
+                    1
+                    <input type="range" min="0" max="500" value="0" class="slider" id="slider1">
+                    <span id="bet1" class="bet-amount">$0</span>
+                </div>
+                <div class="block" data-number="2">
+                    2
+                    <input type="range" min="0" max="500" value="0" class="slider" id="slider2">
+                    <span id="bet2" class="bet-amount">$0</span>
+                </div>
+                <div class="block" data-number="3">
+                    3
+                    <input type="range" min="0" max="500" value="0" class="slider" id="slider3">
+                    <span id="bet3" class="bet-amount">$0</span>
+                </div>
+                <div class="block" data-number="4">
+                    4
+                    <input type="range" min="0" max="500" value="0" class="slider" id="slider4">
+                    <span id="bet4" class="bet-amount">$0</span>
+                </div>
+                <div class="block" data-number="5">
+                    5
+                    <input type="range" min="0" max="500" value="0" class="slider" id="slider5">
+                    <span id="bet5" class="bet-amount">$0</span>
+                </div>
+                <div class="block" data-number="6">
+                    6
+                    <input type="range" min="0" max="500" value="0" class="slider" id="slider6">
+                    <span id="bet6" class="bet-amount">$0</span>
+                </div>
+                <div class="block" data-number="7">
+                    7
+                    <input type="range" min="0" max="500" value="0" class="slider" id="slider7">
+                    <span id="bet7" class="bet-amount">$0</span>
+                </div>
+                <div class="block" data-number="8">
+                    8
+                    <input type="range" min="0" max="500" value="0" class="slider" id="slider8">
+                    <span id="bet8" class="bet-amount">$0</span>
+                </div>
+                <div class="block" data-number="9">
+                    9
+                    <input type="range" min="0" max="500" value="0" class="slider" id="slider9">
+                    <span id="bet9" class="bet-amount">$0</span>
+                </div>
+            </div>
+
+            <button id="placeBetBtn">Place Bet</button>
+
+            <div id="result"></div>
+        </div>
+
+        <!-- Spin Wheel Section -->
+        <div id="wheel-container">
+            <!-- Arrow pointing to the result -->
+            <div id="arrow"></div>
+            <div id="wheel">
+                <div class="wheel-number" style="transform: rotate(0deg) translateX(100px);">0</div>
+                <div class="wheel-number" style="transform: rotate(36deg) translateX(100px);">1</div>
+                <div class="wheel-number" style="transform: rotate(72deg) translateX(100px);">2</div>
+                <div class="wheel-number" style="transform: rotate(108deg) translateX(100px);">3</div>
+                <div class="wheel-number" style="transform: rotate(144deg) translateX(100px);">4</div>
+                <div class="wheel-number" style="transform: rotate(180deg) translateX(100px);">5</div>
+                <div class="wheel-number" style="transform: rotate(216deg) translateX(100px);">6</div>
+                <div class="wheel-number" style="transform: rotate(252deg) translateX(100px);">7</div>
+                <div class="wheel-number" style="transform: rotate(288deg) translateX(100px);">8</div>
+                <div class="wheel-number" style="transform: rotate(324deg) translateX(100px);">9</div>
+            </div>
+        </div>
+    </div>
+
+  <audio id="win-sound" src="cha-ching-7053.mp3"></audio> <!-- Existing win sound -->
+  <audio id="lose-sound" src="8-bit-video-game-lose-sound-version-1-145828.mp3"></audio> <!-- New lose sound -->
+  <audio id="spinner-sound" src="spinner-sound-36693.mp3"></audio> <!-- Spinner sound -->
+
+    <script src="script.js"></script>
+</body>
+</html>
+    <audio id="win-sound" src="cha-ching-7053.mp3"></audio>
