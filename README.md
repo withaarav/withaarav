@@ -1,61 +1,58 @@
-👋 Hey, I’m Aarav
+## 👋 Hey, I'm Aarav Porwal
 
-🚀 High school developer from India building AI projects and practical tools
+High school developer from India — building AI tools and things that are actually useful.
 
-I like turning ideas into things you can actually use — not just tutorial code.
+---
 
-⸻
+### 🔥 What I'm working on
+- 🧠 AI + Computer Vision projects — turning camera input into interactive experiences
+- 🔐 Real-world tools — password managers, traffic analyzers, simulators
+- 📈 Levelling up in DSA and problem-solving
 
-🔥 What I’m Working On
+---
 
-* 🧠 AI + Computer Vision projects
-* 🔐 Building useful tools (like password managers)
-* 💻 Improving core programming + problem-solving
+### 🚀 Featured projects
 
-⸻
+**🔒 [MyPass — Password Manager](https://github.com/withaarav/Password-Manager)**  
+CLI-based password manager built in Python. Stores and retrieves credentials with clipboard support.  
+`Python` · `File I/O` · `pyperclip` · `OOP`
 
-🚀 Featured Projects
+**🐶 [AI Gesture Controlled Dog](https://github.com/withaarav/Gesture-Controlled-Dog)**  
+Control a virtual dog in real time using hand gestures — built with OpenCV and computer vision.  
+`Python` · `OpenCV` · `Computer Vision`
 
-🔐 MyPass – Password Manager
+**🎲 [Theoretical Probability Simulator](https://github.com/withaarav/Theoretical-Probability-Sim)**  
+Visualizes how dice and coin-flip results converge to theoretical probability over many runs.  
+`HTML` · `JavaScript` · `Probability`
 
-A lightweight CLI-based password manager built with Python
-→ Stores and retrieves credentials with clipboard support
+---
 
-🐶 AI Gesture Controlled Dog
+### 🛠 Tech stack
+| | |
+|---|---|
+| **Languages** | Python · HTML · JavaScript |
+| **Libraries** | OpenCV · pyperclip |
+| **Tools** | Git · GitHub |
+| **Concepts** | OOP · File Handling · Computer Vision |
 
-Control a virtual dog using hand gestures via computer vision
+---
 
-⸻
+### 📈 Goals
+- Ship 2–3 standout AI/CV projects with full documentation
+- Build a portfolio strong enough for top-tier university applications
+- Learn JavaScript deeply — move beyond Python into full-stack territory
 
-🛠 Tech Stack
+---
 
-* Languages: Python
-* Tools: Git, GitHub
-* Libraries: OpenCV, pyperclip
-* Concepts: OOP, File Handling
+### ⚡ Fun fact
+I'll spend 4 hours debugging a single bug — then immediately switch to music or gaming like nothing happened 🎧
 
-⸻
+---
 
-📈 Current Goals
+### 📬 Connect
+- 📧 with.aarav@gmail.com
+- 📸 Instagram: [aarav_porwal14](https://instagram.com/aarav_porwal14)
 
-* Build 2–3 standout AI projects
-* Create more real-world applications
-* Prepare for top-tier university applications
+---
 
-⸻
-
-⚡ Fun Fact
-
-I can spend hours coding… and then randomly switch to music or gaming like nothing happened 🎧
-
-⸻
-
-📬 Connect With Me
-
-* GitHub: https://github.com/withaarav
-
-⸻
-
-💡 Philosophy
-
-Build. Break. Learn. Repeat.
+> *Build. Break. Learn. Repeat.*
